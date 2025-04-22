@@ -1,4 +1,4 @@
-dados: dict[str, str] = {
+dados_model: dict[str, str] = {
     "quantos planetas tem o sistema solar?": "O Sistema Solar possui 8 planetas: Mercúrio, Vênus, Terra, Marte, Júpiter, Saturno, Urano e Netuno.",
     "qual é o maior planeta do sistema solar?": "Júpiter é o maior planeta do Sistema Solar.",
     "qual é o menor planeta do sistema solar?": "Mercúrio é o menor planeta do Sistema Solar.",

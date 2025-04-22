@@ -1,4 +1,4 @@
-from dados.sistema_solar import dados
+from dados.sistema_solar import dados_model
 
 def carregar_conhecimento_em_texto():
     """
@@ -28,6 +28,6 @@ def carregar_conhecimento_em_texto():
     'planeta: Terra\ndistancia: 149.6 milhões de km'
     """
     texto_base: str = ''
-    for key, value in dados.items():
+    for key, value in dados_model.items():
         texto_base += f"{key}: {value}\n"
     return texto_base.strip()
