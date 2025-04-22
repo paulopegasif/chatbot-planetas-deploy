@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot dos Planetas 🌍</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1e272e;
+            color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+        h1 {
+            color: #f9ca24;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background: #f9ca24;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chat-box {
+            background-color: #2f3640;
+            width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .mensagem {
+            margin-bottom: 15px;
+        }
+        .user {
+            color: #00a8ff;
+        }
+        .assistant {
+            color: #7bed9f;
+        }
+        .reset {
+            margin-top: 10px;
+            background: #e84118;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot dos Planetas 🌍</h1>
+
+    <form method="POST">
+        <input type="text" name="pergunta" placeholder="Digite sua pergunta..." required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <form method="POST" action="/resetar">
+        <button class="reset" type="submit">Resetar Conversa</button>
+    </form>
+
+    <div class="chat-box">
+        {% for msg in historico %}
+            <div class="mensagem">
+                <strong class="{{ msg.role }}">{{ 'Você' if msg.role == 'user' else 'Chatbot' }}:</strong>
+                <p>{{ msg.parts[0] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
